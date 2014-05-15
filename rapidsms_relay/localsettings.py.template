@@ -1,9 +1,6 @@
 
 #Settings for rapidsms-relay
 
-#Specify the backend to be used for outgoing messages
-RAPIDSMS_BACKENDS_FOR_SMS_RELAY = "" 
-
 #Specify the url incoming messages will be relayed to
 INCOMING_MESSAGES_RELAY_URL = "http://localhost:9091/sms"  
 
@@ -12,3 +9,9 @@ INCOMING_MESSAGES_RELAY_EVERYTHING = "True"
 
 #If the relay everything is false, then define a prefix
 INCOMING_MESSAGES_RELAY_INDICATOR_SMS_PREFIX = "elmis"
+
+#Let's have country code matching for when we have multiple backends.
+RAPIDSMS_BACKENDS_COUNTRY_CODE_MATCHING_FOR_SMS_RELAY = {"1":"our-gateway-in-the-US",
+                                            			 "255":"our-gateway-in-tz",
+                                            			 "default":"our-gateway-in-tz",
+                                            			 }
