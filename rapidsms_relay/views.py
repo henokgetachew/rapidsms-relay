@@ -1,4 +1,5 @@
 import urllib
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import RequestContext
@@ -34,6 +35,7 @@ def index(request):
     return HttpResponse("Message sent to: %s, Content: %s" % (phone_number, message))
 
 
+@login_required
 def send_outgoing(request):
     """
     Used for the purposes of showing a testing page
