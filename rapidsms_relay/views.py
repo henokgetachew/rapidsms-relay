@@ -1,5 +1,6 @@
 import urllib
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ImproperlyConfigured
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import RequestContext
@@ -10,7 +11,11 @@ from rapidsms_relay import settings
 
 
 def choose_backend(phone_no):
-    matching_dict = settings.RAPIDSMS_BACKENDS_COUNTRY_CODE_MATCHING_FOR_SMS_RELAY
+    try:
+        matching_dict = settings.RAPIDSMS_BACKENDS_COUNTRY_CODE_MATCHING_FOR_SMS_RELAY
+    except:
+        raise ImproperlyConfigured
+
     backend = None
     for key in matching_dict.keys():
         if phone_no.startswith(key):
