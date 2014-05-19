@@ -2,7 +2,10 @@
 #Settings for rapidsms-relay
 
 #Specify the url incoming messages will be relayed to
-INCOMING_MESSAGES_RELAY_URL = "http://localhost:9091/sms"  
+INCOMING_MESSAGES_RELAY_URL = "http://localhost:9091/sms"
+
+#Specify the url this app will be listening at for relay
+RAPIDSMS_HOST_RELAY_URL = "http://localhost:8000/rapidsms_relay/"
 
 #If true, every incoming message will be relayed.
 INCOMING_MESSAGES_RELAY_EVERYTHING = "True" 

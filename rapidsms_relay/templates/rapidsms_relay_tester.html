@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+    Test RapidSMS Relay
+{% endblock title %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Test Outgoing Message Through Relay</h1><br/>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Source Phone Number</label>
+        <input name="phone_number" type="text" placeholder="Enter Phone Number" />
+        <br>
+        <label>Message Content</label>
+        <br>
+        <textarea name="msg" style="height: 200px;width: 500px"></textarea>
+        <br>
+        <button class="btn btn-primary">Send Message</button>
+    </form>
+{% endblock %}
